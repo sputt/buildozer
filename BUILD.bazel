@@ -1,15 +1,7 @@
-sh_binary(
+alias(
     name = "buildozer",
-    srcs = ["buildozer.sh"],
-    data = [
-        "@buildozer_binary//:buildozer.exe",
-    ],
-    env = {
-        "BUILDOZER_RLOCATIONPATH": "$(rlocationpath @buildozer_binary//:buildozer.exe)",
-    },
-    deps = [
-        "@bazel_tools//tools/bash/runfiles",
-    ],
+    actual = "@buildozer_binary//:source_buildozer",
+    visibility = ["//visibility:public"],
 )
 
 exports_files(["buildozer.bzl"])
